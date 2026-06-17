@@ -12,7 +12,7 @@ function App() {
 
   const fetchRecords = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/forms");
+      const response = await axios.get("https://form-app-backend-q407.onrender.com/api/forms");
 
       setRecords(response.data);
     } catch (error) {
@@ -30,14 +30,14 @@ function App() {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/forms/${editingId}`,
+          `https://form-app-backend-q407.onrender.com/api/forms/${editingId}`,
           formData
         );
 
         alert("Record updated successfully!");
       } else {
         await axios.post(
-          "http://localhost:5000/api/forms",
+          "https://form-app-backend-q407.onrender.com/api/forms",
           formData
         );
 
@@ -63,7 +63,7 @@ function App() {
 
   const deleteRecord = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/forms/${id}`);
+      await axios.delete(`https://form-app-backend-q407.onrender.com/api/forms/${id}`);
       fetchRecords();
     } catch (error) {
       console.error("Error deleting record:", error);
